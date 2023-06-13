@@ -7,6 +7,7 @@
   </head>
   <body>
     <button onclick="window.localStorage.removeItem('FMX22-chat-data'); window.location.reload()">Очистить данные чата и обновить страницу</button>
+    <div id="app"></div>
     <script src="chat-widget.js"></script>
     <script>
       window.FMX22 = window.FMX22 || {
@@ -14,6 +15,7 @@
       }
       window.FMX22.chat = new ChatWidget({
         webmasterKey: window.FMX22.webmasterKey,
+        mountPoint: '#app',
         chatSettings: {
           buttons: [
             {text: 'Узнать статус заказа', command: 'get_order_status'},
