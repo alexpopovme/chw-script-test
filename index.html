@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>chat-widget</title>
+  </head>
+  <body>
+    <script src="chat-widget.js"></script>
+    <script>
+      window.FMX22 = window.FMX22 || {
+        webmasterKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9_eyJ0eXBlIjoiYWNjZXNzIiwiaWRlbnRpdHkiOjIsImV4cGlyZWQiOiIyMDI1LTAxLTI1VDA3OjM5OjM1Ljc5NDY0MSswMzowMCIsImlwX2FkZHJlc3MiOiIxMjcuMC4wLjEiLCJzYWx0XzxidWlsdC1pbiBtZXRob2QgcmFuZG9tIG9mIFJhbmRvbSBvYmplY3QgYXQgMHg3ZmJkMjk4Mjg4MTA_IjoiPGJ1aWx0LWluIG1ldGhvZCByYW5kb20gb2YgUmFuZG9tIG9iamVjdCBhdCAweDdmYmQyOTgyODgxMD4ifQ_YmojvoyOVQ_wt1M5wW0m6DGwvDoSoW0NcVx9mxi_ju0'
+      }
+      window.FMX22.chat = new ChatWidget({
+        webmasterKey: window.FMX22.webmasterKey,
+        chatSettings: {
+          buttons: [
+            {text: 'Узнать статус заказа', command: 'get_order_status'},
+            {text: 'Изменить заказ', command: 'change_order'}
+          ],
+        }
+      })
+    </script>
+  </body>
+</html>
