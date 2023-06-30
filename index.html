@@ -7,22 +7,47 @@
   </head>
   <body>
     <button onclick="window.localStorage.removeItem('FMX22-chat-data'); window.location.reload()">Очистить данные чата и обновить страницу</button>
-    <div id="app"></div>
+    <div id="chat-widget"></div>
     <script src="chat-widget.js"></script>
-    <script>
-      window.FMX22 = window.FMX22 || {
-        webmasterKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9_eyJ0eXBlIjoiYWNjZXNzIiwiaWRlbnRpdHkiOjIsImV4cGlyZWQiOiIyMDI1LTAxLTI1VDA3OjM5OjM1Ljc5NDY0MSswMzowMCIsImlwX2FkZHJlc3MiOiIxMjcuMC4wLjEiLCJzYWx0XzxidWlsdC1pbiBtZXRob2QgcmFuZG9tIG9mIFJhbmRvbSBvYmplY3QgYXQgMHg3ZmJkMjk4Mjg4MTA_IjoiPGJ1aWx0LWluIG1ldGhvZCByYW5kb20gb2YgUmFuZG9tIG9iamVjdCBhdCAweDdmYmQyOTgyODgxMD4ifQ_YmojvoyOVQ_wt1M5wW0m6DGwvDoSoW0NcVx9mxi_ju0'
+  <script>
+    window.FMX22 = window.FMX22 || {
+      webKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9_eyJ0eXBlIjoiYWNjZXNzIiwiaWRlbnRpdHkiOjIsImV4cGlyZWQiOiIyMDI1LTAxLTI1VDA3OjM5OjM1Ljc5NDY0MSswMzowMCIsImlwX2FkZHJlc3MiOiIxMjcuMC4wLjEiLCJzYWx0XzxidWlsdC1pbiBtZXRob2QgcmFuZG9tIG9mIFJhbmRvbSBvYmplY3QgYXQgMHg3ZmJkMjk4Mjg4MTA_IjoiPGJ1aWx0LWluIG1ldGhvZCByYW5kb20gb2YgUmFuZG9tIG9iamVjdCBhdCAweDdmYmQyOTgyODgxMD4ifQ_YmojvoyOVQ_wt1M5wW0m6DGwvDoSoW0NcVx9mxi_ju0',
+      chat: {
+        widget: 3, // id виджета
+        source: 3 // какой-то source
       }
-      window.FMX22.chat = new ChatWidget({
-        webmasterKey: window.FMX22.webmasterKey,
-        mountPoint: '#app',
-        chatSettings: {
-          buttons: [
-            {text: 'Узнать статус заказа', command: 'get_order_status'},
-            {text: 'Изменить заказ', command: 'change_order'}
-          ],
-        }
+    }
+
+    ChatWidget.getSettings(window.FMX22.chat.widget)
+      .then((settings) => {
+        window.FMX22.chat = new ChatWidget(settings)
       })
-    </script>
+      .catch((err) => {
+        console.error(err.message, '\n', err.origError)
+        window.FMX22.chat = new ChatWidget({
+          id: window.FMX22.chat.widget,
+          data_type: 'core__widget',
+          created_at: '2023-06-22T18:52:16.607490+03:00',
+          updated_at: '2023-06-22T18:52:16.607510+03:00',
+          title: 'test chat 1',
+          site: null,
+          type: 0,
+          data: {
+            chat_settings: {
+              buttons: [
+                {text: 'Узнать статус заказа', command: 'get_order_status'},
+                {text: 'Изменить заказ', command: 'change_order'}
+              ]
+            }
+          },
+          source: null,
+          company: 1,
+          hotel: null,
+          operator: 215,
+          agent: null
+        })
+        console.log('ChatWidget: Применены настройки по умолчанию')
+      })
+  </script>
   </body>
 </html>
