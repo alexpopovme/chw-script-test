@@ -8,7 +8,7 @@
   <body>
     <button onclick="window.localStorage.removeItem('FMX22-chat-data'); window.location.reload()">Очистить данные чата и обновить страницу</button>
     <div id="chat-widget"></div>
-    <script src="chat-widget-v0.0.3.js"></script>
+    <script src="chat-widget-v0.0.4.js"></script>
   <script>
     window.FMX22 = window.FMX22 || {
       identity: null,
@@ -29,7 +29,39 @@
                   }
                 }
           */
-        ]
+        ],
+        createChat () {
+          ChatWidget.getSettings(window.FMX22.chat.widget)
+            .then((settings) => {
+              window.FMX22.chat = new ChatWidget(settings, window.FMX22.chat.extraButtons)
+            })
+            .catch((err) => {
+              console.error(err.message, '\n', err.origError)
+              window.FMX22.chat = new ChatWidget({
+                id: window.FMX22.chat.widget,
+                data_type: 'core__widget',
+                created_at: '2023-06-22T18:52:16.607490+03:00',
+                updated_at: '2023-06-22T18:52:16.607510+03:00',
+                title: 'test chat 1',
+                site: null,
+                type: 0,
+                data: {
+                  chat_settings: {
+                    buttons: [
+                      {text: 'Узнать статус заказа', command: 'get_order_status'},
+                      {text: 'Изменить заказ', command: 'change_order'}
+                    ]
+                  }
+                },
+                source: null,
+                company: 1,
+                hotel: null,
+                operator: 215,
+                agent: null
+              }, window.FMX22.chat.extraButtons)
+              console.log('ChatWidget: Применены настройки по умолчанию')
+            })
+        }
       }
     }
 
@@ -37,40 +69,12 @@
     ChatWidget.getIdentity(window.FMX22.chat.widget)
       .then((identity) => {
         window.FMX22.identity = identity
-        ChatWidget.getSettings(window.FMX22.chat.widget)
-          .then((settings) => {
-            window.FMX22.chat = new ChatWidget(settings, window.FMX22.chat.extraButtons)
-          })
-          .catch((err) => {
-            console.error(err.message, '\n', err.origError)
-            window.FMX22.chat = new ChatWidget({
-              id: window.FMX22.chat.widget,
-              data_type: 'core__widget',
-              created_at: '2023-06-22T18:52:16.607490+03:00',
-              updated_at: '2023-06-22T18:52:16.607510+03:00',
-              title: 'test chat 1',
-              site: null,
-              type: 0,
-              data: {
-                chat_settings: {
-                  buttons: [
-                    {text: 'Узнать статус заказа', command: 'get_order_status'},
-                    {text: 'Изменить заказ', command: 'change_order'}
-                  ]
-                }
-              },
-              source: null,
-              company: 1,
-              hotel: null,
-              operator: 215,
-              agent: null
-            }, window.FMX22.chat.extraButtons)
-            console.log('ChatWidget: Применены настройки по умолчанию')
-          })
+        window.FMX22.chat.createChat()
       })
       .catch((err) => {
         if (err.response.status === 401) {
           ChatWidget.clearData(window.FMX22.chat.widget)
+          window.FMX22.chat.createChat()
         }
       })
   </script>
