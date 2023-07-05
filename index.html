@@ -72,7 +72,7 @@
         window.FMX22.chat.createChat()
       })
       .catch((err) => {
-        if (err.response.status === 401) {
+        if (err.response && err.response.status === 401) {
           ChatWidget.clearData(window.FMX22.chat.widget)
           window.FMX22.chat.createChat()
         }
