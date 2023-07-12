@@ -6,10 +6,10 @@
     <title>chat-widget</title>
   </head>
   <body>
-    <button onclick="ChatWidget.clearData(window.FMX22.chat.widget); window.location.reload()">Очистить данные чата и обновить страницу</button>
+    <script src="chat-widget-v0.0.4-3.js"></script>
+    <button onclick="ChatWidget.clearData(window.FMX22.chat.settings.id); window.location.reload()">Очистить данные чата и обновить страницу</button>
     <div id="chat-widget"></div>
-    <script src="chat-widget-v0.0.4-2.js"></script>
-  <script>
+    <script>
     window.FMX22 = window.FMX22 || {
       identity: null,
       webKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9_eyJ0eXBlIjoiYWNjZXNzIiwiaWRlbnRpdHkiOjIsImV4cGlyZWQiOiIyMDI1LTAxLTI1VDA3OjM5OjM1Ljc5NDY0MSswMzowMCIsImlwX2FkZHJlc3MiOiIxMjcuMC4wLjEiLCJzYWx0XzxidWlsdC1pbiBtZXRob2QgcmFuZG9tIG9mIFJhbmRvbSBvYmplY3QgYXQgMHg3ZmJkMjk4Mjg4MTA_IjoiPGJ1aWx0LWluIG1ldGhvZCByYW5kb20gb2YgUmFuZG9tIG9iamVjdCBhdCAweDdmYmQyOTgyODgxMD4ifQ_YmojvoyOVQ_wt1M5wW0m6DGwvDoSoW0NcVx9mxi_ju0',
