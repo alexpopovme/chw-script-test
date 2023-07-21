@@ -6,77 +6,20 @@
     <title>chat-widget</title>
   </head>
   <body>
-    <script src="chat-widget-v0.0.5-1.js"></script>
-    <button onclick="ChatWidget.clearData(window.FMX22.chat.settings.id); window.location.reload()">Очистить данные чата и обновить страницу</button>
+    <button onclick="if (window.FMX22 && window.ChatWidget) { window.ChatWidget.clearData(window.FMX22.chat.settings.id); window.location.reload()}">Очистить данные чата и обновить страницу</button>
     <div id="chat-widget"></div>
     <script>
-    window.FMX22 = window.FMX22 || {
-      identity: null,
-      webKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9_eyJ0eXBlIjoiYWNjZXNzIiwiaWRlbnRpdHkiOjIsImV4cGlyZWQiOiIyMDI1LTAxLTI1VDA3OjM5OjM1Ljc5NDY0MSswMzowMCIsImlwX2FkZHJlc3MiOiIxMjcuMC4wLjEiLCJzYWx0XzxidWlsdC1pbiBtZXRob2QgcmFuZG9tIG9mIFJhbmRvbSBvYmplY3QgYXQgMHg3ZmJkMjk4Mjg4MTA_IjoiPGJ1aWx0LWluIG1ldGhvZCByYW5kb20gb2YgUmFuZG9tIG9iamVjdCBhdCAweDdmYmQyOTgyODgxMD4ifQ_YmojvoyOVQ_wt1M5wW0m6DGwvDoSoW0NcVx9mxi_ju0',
-      chat: {
-        widget: 2, // id виджета
-        source: 2, // source
-        extraButtons: [
-          /*
-                {
-                  name: 'example',
-                  title: 'example button',
-                  color: '#FF8F1F',
-                  imgStyle: 'width: 60%; filter: invert(1); padding-top: 5px; padding-right: 5px;',
-                  imgSrc: 'https://cdn.statically.io/gh/alexpopovme/chw-script-test/main/call.png',
-                  action: () => {
-                    console.log('Example button clicked')
-                  }
-                }
-          */
-        ],
-        createChat () {
-          ChatWidget.getSettings(window.FMX22.chat.widget)
-            .then((settings) => {
-              window.FMX22.chat = new ChatWidget(settings, window.FMX22.chat.extraButtons)
-            })
-            .catch((err) => {
-              console.error(err.message, '\n', err.origError)
-              window.FMX22.chat = new ChatWidget({
-                id: window.FMX22.chat.widget,
-                data_type: 'core__widget',
-                created_at: '2023-06-22T18:52:16.607490+03:00',
-                updated_at: '2023-06-22T18:52:16.607510+03:00',
-                title: 'test chat 1',
-                site: null,
-                type: 0,
-                data: {
-                  chat_settings: {
-                    buttons: [
-                      {text: 'Узнать статус заказа', command: 'get_order_status'},
-                      {text: 'Изменить заказ', command: 'change_order'}
-                    ]
-                  }
-                },
-                source: null,
-                company: 1,
-                hotel: null,
-                operator: 215,
-                agent: null
-              }, window.FMX22.chat.extraButtons)
-              console.log('ChatWidget: Применены настройки по умолчанию')
-            })
-        }
-      }
-    }
-
-
-    ChatWidget.getIdentity(window.FMX22.chat.widget)
-      .then((identity) => {
-        window.FMX22.identity = identity
-        window.FMX22.chat.createChat()
-      })
-      .catch((err) => {
-        if (err.response && err.response.status === 401) {
-          ChatWidget.clearData(window.FMX22.chat.widget)
-          window.FMX22.chat.createChat()
-        }
-      })
-  </script>
+      // загрузка скрипта и создание виджета
+      (function () {
+        const chw = document.createElement('div')
+        chw.id = 'chat-widget'
+        document.body.append(chw)
+        const chws = document.createElement('script')
+        chws.src = 'https://cdn.rnsb.su:1443/nsb-widget-dev/chat-widget.js'
+        chws.onload = () => { window.ChatWidget.createWidget }
+        chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
+        document.head.append(chws)
+      })()
+    </script>
   </body>
 </html>
