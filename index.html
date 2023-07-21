@@ -16,7 +16,7 @@
         document.body.append(chw)
         const chws = document.createElement('script')
         chws.src = 'https://cdn.rnsb.su:1443/nsb-widget-dev/chat-widget.js'
-        chws.onload = () => { window.ChatWidget.createWidget }
+        chws.onload = () => { window.ChatWidget.createWidget() }
         chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
         document.head.append(chws)
       })()
