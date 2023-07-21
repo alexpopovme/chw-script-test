@@ -10,7 +10,7 @@
     <div id="chat-widget"></div>
     <script>
       // загрузка скрипта и создание виджета
-      (function () {
+      function addWidget () {
         const chw = document.createElement('div')
         chw.id = 'chat-widget'
         document.body.append(chw)
@@ -19,7 +19,8 @@
         chws.onload = () => { window.ChatWidget.createWidget(2, 2) }
         chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
         document.head.append(chws)
-      })()
+      }
+      addWidget()
     </script>
   </body>
 </html>
