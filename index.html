@@ -8,6 +8,7 @@
   </head>
   <body>
     <button onclick="if (window.FMX22 && window.ChatWidget) { window.ChatWidget.clearData(window.FMX22.chat.settings.id); window.location.reload()}">Очистить данные чата и обновить страницу</button>
+    <button onclick="window.FMX22 && window.FMX22.win && window.FMX22.win.orderCall && window.FMX22.win.orderCall.show()">Окно обратного звонка</button>
     <div id="chat-widget"></div>
     <script>
       // загрузка скрипта и создание виджета
