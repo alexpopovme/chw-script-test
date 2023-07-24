@@ -4,11 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>chat-widget</title>
+    <script src="chat-widget.js"></script>
   </head>
   <body>
     <button onclick="if (window.FMX22 && window.ChatWidget) { window.ChatWidget.clearData(window.FMX22.chat.settings.id); window.location.reload()}">Очистить данные чата и обновить страницу</button>
     <script>
       // загрузка скрипта и создание виджета
+/*
       function addWidget () {
         const chw = document.createElement('div')
         chw.id = 'chat-widget'
@@ -19,7 +21,9 @@
         chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
         document.head.append(chws)
       }
-      addWidget()
+*/
+      // addWidget()
+      window.ChatWidget.createWidget(2, 2)
     </script>
   </body>
 </html>
