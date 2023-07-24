@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>chat-widget</title>
-    <script src="chat-widget.js"></script>
   </head>
   <body>
     <button onclick="if (window.FMX22 && window.ChatWidget) { window.ChatWidget.clearData(window.FMX22.chat.settings.id); window.location.reload()}">Очистить данные чата и обновить страницу</button>
@@ -12,20 +11,17 @@
     <div id="chat-widget"></div>
     <script>
       // загрузка скрипта и создание виджета
-/*
       function addWidget () {
         const chw = document.createElement('div')
         chw.id = 'chat-widget'
         document.body.append(chw)
         const chws = document.createElement('script')
         chws.src = 'https://cdn.rnsb.su:1443/nsb-widget-dev/chat-widget.js'
-        chws.onload = () => { window.ChatWidget.createWidget(2, 2) }
+        chws.onload = () => { window.ChatWidget.createWidget(1, 2) }
         chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
         document.head.append(chws)
       }
-*/
-      // addWidget()
-      window.ChatWidget.createWidget(2, 2)
+      addWidget()
     </script>
   </body>
 </html>
