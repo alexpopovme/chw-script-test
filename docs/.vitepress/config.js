@@ -22,15 +22,9 @@ export default defineConfig({
           { text: 'Настройки автоответа в чате', link: '/contacts-dialog-settings' },
           { text: 'Другие настройки', link: '/other-settings' }
         ]
-      },
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
       }
     ],
+    outlineTitle: 'На странице',
     docFooter: {
       prev: 'Предыдущая',
       next: 'Следующая'
