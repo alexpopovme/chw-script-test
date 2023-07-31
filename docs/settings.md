@@ -17,7 +17,6 @@
 ```json
 {
   "chat_settings": {
-    "mount_point": "#chat-widget",
     "visible": false,
     "buttons": [],
     "logo": {
@@ -42,7 +41,20 @@
   },
   "contact_dialog": {
     "response_number": "",
-    "response_email": ""
+    "response_email": "",
+    "contact_types": [
+      { "name": "phone",    "text": "Телефон",   "on_select_text": "Введите Ваш номер телефона",     "on_end_text": "Вам поступит звонок с номера<br> {{PHONE}}" },
+      { "name": "whatsapp", "text": "WhatsApp",  "on_select_text": "Введите Ваш номер WhatsApp",     "on_end_text": "Вам поступит звонок с номера {{PHONE}}" },
+      { "name": "telegram", "text": "Telegram",  "on_select_text": "Введите Ваш номер Телеграм",     "on_end_text": "Вам поступит звонок с номера {{PHONE}}" },
+      { "name": "viber",    "text": "Viber",     "on_select_text": "Введите Ваш номер Вайбер",       "on_end_text": "Вам поступит звонок с номера {{PHONE}}" },
+      { "name": "email",    "text": "Эл. почта", "on_select_text": "Введите Вашу электронную почту", "on_end_text": "Вам будет отправлено электронное письмо с адреса {{EMAIL}}" }
+    ],
+    "steps": [
+      { "text": "На данный момент все операторы заняты, выберите как мы можем с Вами связаться", "wait_input": true, "wait_time": 0, "info": "Выберите как с Вами связаться" },
+      { "text": "{{on_select_text}}", "wait_input": true, "wait_time": 500, "info": "{{on_select_text}}" },
+      { "text": "Как к Вам обращаться?", "wait_input": true, "wait_time": 500, "info": "Напишите Ваше имя" },
+      { "text": "{{on_end_text}}", "wait_input": false, "wait_time": 500, "info": null }
+    ]
   },
   "win_settings": {
     "order_call": {
@@ -67,7 +79,8 @@
   "telephony_backcall": {
     "internals": [],
     "strict": true
-  }
+  },
+  "mount_point": "#chat-widget"
 }
 ```
 

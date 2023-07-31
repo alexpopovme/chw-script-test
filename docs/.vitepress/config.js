@@ -20,7 +20,8 @@ export default defineConfig({
           { text: 'Настройки окон', link: '/win-settings' },
           { text: 'Настройки телефонии', link: '/backcall-settings' },
           { text: 'Настройки автоответа в чате', link: '/contacts-dialog-settings' },
-          { text: 'Другие настройки', link: '/other-settings' }
+          { text: 'Другие настройки', link: '/other-settings' },
+          { text: 'API', link: '/public_api' }
         ]
       }
     ],
