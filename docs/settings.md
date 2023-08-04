@@ -73,9 +73,7 @@
       "show": {
         "initial": 0,
         "on_exit": 0,
-        "no_action": 0,
-        "ses_count": 1,
-        "glob_count": 3
+        "no_action": 0
       },
       "text": {
         "h1": "У Вас остались вопросы?",
@@ -85,7 +83,9 @@
         "feedback": "Мы перезвоним Вам в ближайшее время на номер {{PHONE}}"
       }
     },
-    "promo": []
+    "promo": [],
+    "ses_count": 1,
+    "glob_count": 3
   },
   "telephony_backcall": {
     "internals": [],
