@@ -48,7 +48,9 @@
     },
     "initial_show_delay": 0,
     "history_limit": 20,
-    "no_answer_limit": 20000
+    "no_answer_limit": 20000,
+    "robot_name": "Автоответчик",
+    "system_name": "Системный автоответчик"
   },
   "contact_dialog": {
     "response_number": "",
