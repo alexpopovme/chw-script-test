@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  outDir: './public',
   lang: 'ru-RU',
   title: "Чат Виджет",
   description: "Документация",
@@ -20,6 +19,7 @@ export default defineConfig({
           { text: 'Настройки окон', link: '/win-settings' },
           { text: 'Настройки телефонии', link: '/backcall-settings' },
           { text: 'Настройки автоответа в чате', link: '/contacts-dialog-settings' },
+          { text: 'Настройки хуков аналитики', link: '/hooks' },
           { text: 'Другие настройки', link: '/other-settings' },
           { text: 'API', link: '/public_api' }
         ]
