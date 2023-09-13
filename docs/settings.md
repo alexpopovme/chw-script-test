@@ -111,6 +111,13 @@
       "no_answer": "Ответить в чате"
     }
   },
+  "hooks": {
+    "backcall_open": [],
+    "backcall_send": [],
+    "chat_open": [],
+    "chat_send": [],
+    "chat_send_contacts": []
+  },
   "mount_point": "#chat-widget"
 }
 ```
