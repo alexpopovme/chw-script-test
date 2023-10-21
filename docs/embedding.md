@@ -45,17 +45,20 @@
 ```html{9}
 <script>
   function addWidget () {
-    const chw = document.createElement('div')
-    chw.id = 'chat-widget'
-    document.body.append(chw)
     const chws = document.createElement('script')
     chws.src = 'https://cdn.rnsb.su:1443/nsb-widget/chat-widget.js'
-    // ниже id - id виджета; source - идентификатор источника размещения 
-    chws.onload = () => { window.ChatWidget.createWidget(id, source) }
+    chws.onload = () => {
+      const chw = document.createElement('div')
+      chw.id = 'chat-widget'
+      document.body.append(chw)
+      // ниже 'id' - id виджета; 'source' - идентификатор источника размещения  
+      window.ChatWidget.createWidget('id', 'source')
+    }
     chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
     document.head.append(chws)
   }
-  setTimeout(addWidget, 0)
+    
+  addEventListener("DOMContentLoaded", addWidget)
 </script>
 ```
 
