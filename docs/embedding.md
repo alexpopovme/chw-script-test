@@ -6,24 +6,27 @@
 
 При встраивании в `HTML` сайта код должен быть внутри тега `script` и размещаться в теле страницы.
 В код необходимо вставить ваши идентификаторы виджета и источника размещения.
-В функцию `createWidget` (строка 11 в примере) вставьте идентификаторы вместо id и source. Например `createWidget(1, 2285)` или `createWidget(1, 'SOURCE_2285')`
+В функцию `createWidget` (строка 11 в примере) вставьте идентификаторы вместо id и source. Например `createWidget(1, 'SOURCE_2285')`
 
 ```html{11}
 <body>
 ...
   <script>
-    function addWidget () {
+   function addWidget () {
+    const chws = document.createElement('script')
+    chws.src = 'https://cdn.rnsb.su:1443/nsb-widget/chat-widget.js'
+    chws.onload = () => {
       const chw = document.createElement('div')
       chw.id = 'chat-widget'
       document.body.append(chw)
-      const chws = document.createElement('script')
-      chws.src = 'https://cdn.rnsb.su:1443/nsb-widget/chat-widget.js'
-      // ниже id - id виджета; source - идентификатор источника размещения 
-      chws.onload = () => { window.ChatWidget.createWidget(id, source) }
-      chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
-      document.head.append(chws)
+      // ниже 'id' - id виджета; 'source' - идентификатор источника размещения  
+      window.ChatWidget.createWidget('id', 'source')
     }
-    setTimeout(addWidget, 0)
+    chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
+    document.head.append(chws)
+  }
+    
+  addEventListener("DOMContentLoaded", addWidget)
   </script>
 ...
 </body>
@@ -42,7 +45,7 @@
 
 В код необходимо вставить ваши идентификаторы виджета и источника размещения.
 
-```html{10}
+```html{9}
 <script>
   function addWidget () {
     const chws = document.createElement('script')
@@ -65,7 +68,7 @@
 ## Пример блока кнопки в Drupal
 
 Кнопка по клику открывает окно обратного звонка `order_call`  
-Пользовательский блок. Текстовый формат: code
+Пользовательский блок. Текстовый формат: code 
 
 ```html
  <div>
