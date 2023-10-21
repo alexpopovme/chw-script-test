@@ -42,7 +42,7 @@
 
 В код необходимо вставить ваши идентификаторы виджета и источника размещения.
 
-```html{9}
+```html{10}
 <script>
   function addWidget () {
     const chws = document.createElement('script')
