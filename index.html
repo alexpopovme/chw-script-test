@@ -14,16 +14,20 @@
     <script>
       // загрузка скрипта и создание виджета
       function addWidget () {
-        const chw = document.createElement('div')
-        chw.id = 'chat-widget'
-        document.body.append(chw)
         const chws = document.createElement('script')
-        chws.src = 'https://cdn.rnsb.su:1443/nsb-widget-dev/chat-widget.js'
-        chws.onload = () => { window.ChatWidget.createWidget(1, 2) }
+        chws.src = 'https://cdn.rnsb.su:1443/nsb-widget/chat-widget.js'
+        chws.onload = () => {
+          const chw = document.createElement('div')
+          chw.id = 'chat-widget'
+          document.body.append(chw)
+          // ниже 'id' - id виджета; 'source' - идентификатор источника размещения
+          window.ChatWidget.createWidget(1, 2)
+        }
         chws.onerror = e => console.log('Ошибка при загрузке виджета чата')
         document.head.append(chws)
       }
-      addWidget()
+
+      addEventListener("DOMContentLoaded", addWidget)
     </script>
   </body>
 </html>
