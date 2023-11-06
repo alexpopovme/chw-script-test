@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,U as l}from"./chunks/framework.fb2d0c26.js";const u=JSON.parse('{"title":"Настройки","description":"","frontmatter":{},"headers":[],"relativePath":"settings.md","filePath":"settings.md"}'),o={name:"settings.md"},p=l("",11),t=[p];function e(D,r,F,c,y,C){return n(),a("div",null,t)}const q=s(o,[["render",e]]);export{u as __pageData,q as default};
