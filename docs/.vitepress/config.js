@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   outDir: './public',
   lang: 'ru-RU',
-  title: "Чат Виджет",
+  title: "НСБ Виджет",
   description: "Документация",
   markdown: {
     lineNumbers: true
@@ -17,6 +17,7 @@ export default defineConfig({
         items: [
           { text: 'Все настройки', link: '/settings' },
           { text: 'Настройки чата', link: '/chat-settings' },
+          { text: 'Настройки формы бронирования', link: '/book-settings' },
           { text: 'Настройки окон', link: '/win-settings' },
           { text: 'Настройки телефонии', link: '/backcall-settings' },
           { text: 'Настройки автоответа в чате', link: '/contacts-dialog-settings' },
