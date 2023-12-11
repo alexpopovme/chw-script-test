@@ -18,6 +18,7 @@ export default defineConfig({
           { text: 'Все настройки', link: '/settings' },
           { text: 'Настройки чата', link: '/chat-settings' },
           { text: 'Настройки формы бронирования', link: '/book-settings' },
+          { text: 'Параметры формы бронирования', link: '/book-params' },
           { text: 'Настройки окон', link: '/win-settings' },
           { text: 'Настройки телефонии', link: '/backcall-settings' },
           { text: 'Настройки автоответа в чате', link: '/contacts-dialog-settings' },
