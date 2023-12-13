@@ -15,6 +15,30 @@
 }
 ```
 
+## show_on_message
+
+Открывать чат при поступлении нового сообщения.  
+
+```json
+{
+  "chat_settings": {
+    "show_on_message": true
+  }  
+}
+```
+
+## keep_visible
+
+Если у пользователя открыт чат и он переходит на другую страницу, сразу открывать там чат.  
+
+```json
+{
+  "chat_settings": {
+    "keep_visible": true
+  }  
+}
+```
+
 ## initial_show_delay
 
 Открывать чат через некоторое время после открытия страницы.  
@@ -83,7 +107,9 @@
     "text": {
       "header": "Всегда рады ответить на Ваши вопросы!",
       "welcome_message": "Здравствуйте!",
-      "input_placeholder": "Напишите что-нибудь"
+      "welcome_message_popup": "Здравствуйте! Как мы можем Вам помочь?",
+      "input_placeholder": "Напишите что-нибудь",
+      "waiting_message": "Ищем свободного менеджера, пожалуйста ожидайте"
     }
   }  
 }
@@ -91,7 +117,9 @@
 
 `header` - текст в шапке сайта  
 `welcome_message` - сообщение чата при первом открытии  
+`welcome_message_popup` - попап сообщение кнопки чата  
 `input_placeholder` - текст в поле ввода сообщения  
+`waiting_message` - сообщение в чате под спиннером  
 
 ## toggle_button_visible
 
@@ -123,6 +151,19 @@
     "toggle_button_visible": {
       "initial_delay": 10000
     }
+  }  
+}
+```
+
+## toggle_button_animation_delay
+
+Время (ms) через которое начинается анимация привлечения внимания к кнопке чата  
+От этого времени также отсчитывается появление попапа кнопки чата и доп. анимаций
+
+```json
+ {
+  "chat_settings": {
+    "toggle_button_animation_delay": 3000
   }  
 }
 ```
