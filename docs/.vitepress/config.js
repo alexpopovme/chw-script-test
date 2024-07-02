@@ -26,6 +26,13 @@ export default defineConfig({
           { text: 'Другие настройки', link: '/other-settings' },
           { text: 'API', link: '/public_api' }
         ]
+      },
+      {
+        text: 'API',
+        items: [
+          { text: 'Свойства и методы', link: '/public_api' },
+          { text: 'Данные сессии', link: '/session_data' }
+        ]
       }
     ],
     outlineTitle: 'На странице',
