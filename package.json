@@ -3,8 +3,8 @@
     "vitepress": "^1.0.0-beta.6"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs --base=/chw-script-test/docs/public/",
-    "docs:preview": "vitepress preview docs"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs --base=/chw-script-test/docs/public/",
+    "preview": "vitepress preview docs"
   }
 }

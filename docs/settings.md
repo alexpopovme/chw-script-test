@@ -38,7 +38,7 @@
     "text": {
       "header": "Всегда рады ответить на Ваши вопросы!",
       "welcome_message": "Здравствуйте!",
-      "input_placeholder": "Напишите что-нибудь"
+      "input_placeholder": "Напишите Ваш вопрос"
     },
     "toggle_button_visible": {
       "initial": true,
